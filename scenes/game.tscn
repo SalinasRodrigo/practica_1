@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcpr8givt5qvf"]
+[gd_scene load_steps=13 format=3 uid="uid://dcpr8givt5qvf"]
 
 [ext_resource type="PackedScene" uid="uid://yecfw56ue5y4" path="res://scenes/player.tscn" id="1_pywut"]
 [ext_resource type="Texture2D" uid="uid://bg7k6fv31qhlu" path="res://assets/sprites/world_tileset.png" id="2_kqiij"]
 [ext_resource type="PackedScene" uid="uid://cm888vtwewcsp" path="res://scenes/platform.tscn" id="3_q8pq5"]
 [ext_resource type="PackedScene" uid="uid://d10a4s0pthr7p" path="res://scenes/coin.tscn" id="4_1cgwq"]
 [ext_resource type="PackedScene" uid="uid://daviqc452tnqo" path="res://scenes/killzone.tscn" id="4_yt715"]
+[ext_resource type="PackedScene" uid="uid://crwckb8drua3u" path="res://scenes/slime.tscn" id="6_y46nh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fsbho"]
 texture = ExtResource("2_kqiij")
@@ -47,15 +48,15 @@ texture = ExtResource("2_kqiij")
 9:0/0 = 0
 9:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:0/0/physics_layer_0/angular_velocity = 0.0
-9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -6.625, 8, -8, 8, -2, -8, -0.375)
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -5.625, 8, 0, -8, -1.875)
 10:0/0 = 0
 10:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:0/0/physics_layer_0/angular_velocity = 0.0
-10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -5.75, 8, 0.125, -8, -2)
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.625, 8, -5.625, 8, 0, -8, -0.25)
 11:0/0 = 0
 11:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:0/0/physics_layer_0/angular_velocity = 0.0
-11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.875, 8, -5.75, 8, 0.125, -8, -0.125)
+11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.625, 6.875, -8, 8, -1.875, -8, -0.25)
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
@@ -414,6 +415,21 @@ sources/0 = SubResource("TileSetAtlasSource_fsbho")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tksc0"]
 distance = 6.0
 
+[sub_resource type="Animation" id="Animation_5oght"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(244, -254)]
+}
+
 [sub_resource type="Animation" id="Animation_6lwwi"]
 resource_name = "horizontal_move"
 length = 1.5
@@ -429,21 +445,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(244, -254), Vector2(347, -254)]
-}
-
-[sub_resource type="Animation" id="Animation_5oght"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(244, -254)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bh11m"]
@@ -464,7 +465,7 @@ layer_1/tile_data = PackedInt32Array(262149, 0, 0, 262147, 0, 0, 262148, 0, 0, 2
 
 [node name="Player" parent="." instance=ExtResource("1_pywut")]
 z_index = 5
-position = Vector2(62, 57)
+position = Vector2(62, 64)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -5)
@@ -548,3 +549,6 @@ position = Vector2(138, -226)
 
 [node name="Coin17" parent="Coins" instance=ExtResource("4_1cgwq")]
 position = Vector2(577, -317)
+
+[node name="Slime" parent="." instance=ExtResource("6_y46nh")]
+position = Vector2(537, 68)
