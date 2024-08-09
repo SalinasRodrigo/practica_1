@@ -40,7 +40,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8iry"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxy1m"]
 size = Vector2(10, 12)
 
 [node name="Slime" type="Node2D"]
@@ -51,12 +51,6 @@ sprite_frames = SubResource("SpriteFrames_n5tmx")
 autoplay = "default"
 frame_progress = 0.606744
 
-[node name="killzone" parent="." instance=ExtResource("2_ojqwq")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_u8iry")
-
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(0, 5)
 target_position = Vector2(9, 0)
@@ -64,3 +58,9 @@ target_position = Vector2(9, 0)
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, 5)
 target_position = Vector2(-9, 0)
+
+[node name="killzone" parent="." instance=ExtResource("2_ojqwq")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_lxy1m")
